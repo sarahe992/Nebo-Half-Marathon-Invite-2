@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<title>Come cheer me on at the Nebo Half Marathon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light only;
+    --yellow:    #f2c14e;   /* buttery gold */
+    --yellow-2:  #f6d37e;   /* soft warm yellow */
+    --yellow-lt: #fbe6bd;   /* pale butter */
+    --yellow-bg: #fdf3d9;   /* butter wash */
+    --cream:     #fffaf0;   /* warm paper */
+    --honey:     #c9992e;   /* deep honey accent */
+    --ink:       #4a3f28;   /* warm brown-black */
+    --muted:     #8a7c5f;   /* muted taupe-gold */
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; background: #fffaf0; }
+  body {
+    font-family: 'Archivo', sans-serif;
+    background: #fffaf0; color: #4a3f28;
+    line-height: 1.6; overflow-x: hidden;
+  }
+  .hero {
+    position: relative;
+    background: linear-gradient(180deg, #fcecc4 0%, var(--yellow-bg) 55%, var(--cream) 100%);
+    text-align: center; padding: 60px 26px 44px; overflow: hidden;
+  }
+  .hero-content { position: relative; z-index: 3; }
+  .eyebrow {
+    font-size: 13px; letter-spacing: .3em; text-transform: uppercase;
+    font-weight: 600; color: var(--honey);
+    opacity: 0; animation: fadeUp .8s ease .5s forwards;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(36px, 8.5vw, 60px); line-height: 1.03;
+    margin: 14px 0 8px; letter-spacing: -0.01em; color: var(--ink);
+    opacity: 0; animation: fadeUp .8s ease .7s forwards;
+  }
+  .hero h1 em { font-style: italic; color: var(--honey); }
+  .hero .sub {
+    font-size: 17px; max-width: 32ch; margin: 0 auto; color: var(--muted);
+    opacity: 0; animation: fadeUp .8s ease .9s forwards;
+  }
+  .story {
+    position: relative; z-index: 5; margin: 8px 22px 0;
+    background: #fff; border: 1px solid #f2e4bf; border-radius: 22px;
+    padding: 36px 30px 32px; box-shadow: 0 22px 50px -30px rgba(201,153,46,.4);
+    text-align: center;
+  }
+  .ribbon {
+    display: inline-block; font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+    font-size: 14px; color: var(--honey); letter-spacing: .02em; margin-bottom: 6px;
+  }
+  .story h2 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(23px, 5.6vw, 31px); line-height: 1.16; margin-bottom: 14px;
+  }
+  .story h2 span { background: linear-gradient(120deg, transparent 60%, var(--yellow-lt) 60%); }
+  .story p { font-size: 16px; color: #5f5137; }
+  .story p + p { margin-top: 12px; }
+  .details { padding: 38px 22px 8px; }
+  .detail-grid { display: grid; gap: 14px; }
+  @media (min-width: 560px) {
+    .detail-grid { grid-template-columns: 1fr 1fr; }
+    .detail-full { grid-column: 1 / -1; }
+  }
+  .card {
+    background: #fff; border: 1px solid #f2e4bf; border-radius: 16px;
+    padding: 20px; display: flex; gap: 15px; align-items: flex-start;
+  }
+  .card .ic {
+    flex: 0 0 auto; width: 42px; height: 42px; border-radius: 12px;
+    display: grid; place-items: center; background: var(--yellow-bg); font-size: 20px;
+  }
+  .card .lbl {
+    font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+    font-weight: 700; color: var(--honey); margin-bottom: 3px;
+  }
+  .card .val { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; line-height: 1.2; }
+  .card .note { font-size: 13.5px; color: var(--muted); margin-top: 3px; }
+  .card a.maplink {
+    color: inherit; text-decoration: none; border-bottom: 2px solid var(--yellow);
+    transition: border-color .15s ease, color .15s ease;
+  }
+  .card a.maplink:hover { color: var(--honey); border-color: var(--honey); }
+  .card .val a.maplink { display: inline-block; }
+  .plan { padding: 34px 22px 10px; }
+  .plan h3 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: 26px; text-align: center; margin-bottom: 6px;
+  }
+  .plan .lede { text-align: center; color: var(--muted); max-width: 46ch; margin: 0 auto 26px; font-size: 15px; }
+  .steps { list-style: none; position: relative; padding-left: 8px; }
+  .steps::before {
+    content: ""; position: absolute; left: 25px; top: 8px; bottom: 26px;
+    width: 2px; background: repeating-linear-gradient(var(--yellow) 0 6px, transparent 6px 12px);
+  }
+  .step { display: flex; gap: 18px; padding: 10px 0 22px; position: relative; }
+  .step .num {
+    flex: 0 0 auto; width: 36px; height: 36px; border-radius: 50%;
+    background: var(--honey); color: var(--cream);
+    display: grid; place-items: center; font-weight: 700; font-size: 15px;
+    box-shadow: 0 0 0 5px var(--cream); z-index: 2;
+  }
+  .step .body h4 { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; margin-bottom: 2px; }
+  .step .body p { font-size: 14.5px; color: var(--muted); }
+  .map-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 9px; padding: 10px 18px; background: var(--yellow); color: #5a4410;
+    text-decoration: none; font-weight: 700; font-size: 14px; border-radius: 999px;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .map-btn:hover { background: var(--honey); color: #fff; transform: translateY(-1px); }
+  .callout {
+    margin-top: 8px; background: var(--yellow-bg); border: 1px dashed var(--yellow);
+    border-radius: 14px; padding: 14px 18px; font-size: 14px; color: #7a6428;
+  }
+  .callout b { color: var(--honey); }
+  .lunch {
+    margin: 30px 22px 0; text-align: center;
+    background: linear-gradient(135deg, #fcecc4, var(--yellow-bg));
+    border: 1px solid #f2e4bf; border-radius: 20px; padding: 30px 26px;
+  }
+  .lunch .emoji { font-size: 30px; }
+  .lunch h3 {
+    font-family: 'Fraunces', serif; font-weight: 500; font-size: 24px;
+    margin: 8px 0 6px; color: var(--honey);
+  }
+  .lunch p { font-size: 15px; color: #5f5137; max-width: 40ch; margin: 0 auto; }
+  .foot {
+    text-align: center; padding: 40px 22px 46px; margin-top: 26px;
+    background: linear-gradient(180deg, transparent, var(--yellow-bg));
+  }
+  .foot .sign {
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 28px;
+    color: var(--honey); margin-bottom: 4px;
+  }
+  .foot .tiny { font-size: 12.5px; color: var(--muted); }
+  .foot a.link { color: var(--honey); }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(16px);} to { opacity:1; transform:translateY(0);} }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; }
+    .eyebrow, .hero h1, .hero .sub { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">You're invited to cheer</p>
+      <h1>I'm running the<br><em>Nebo Half Marathon</em></h1>
+      <p class="sub">13.1 miles down Payson Canyon, and I'd love to see your face at the finish.</p>
+    </div>
+  </header>
+  <section class="story">
+    <span class="ribbon">✦ three years cancer-free ✦</span>
+    <h2>August 29th is my <span>3-year chemo-aversary</span></h2>
+    <p>Three years ago on this exact day, I finished my last round of chemo. It took me a year after that to run a mile again. In the two years since my first post-cancer mile I have fallen in love with running and started training for a half marathon. When I saw one was scheduled for the 29th, it felt like it was meant to be.</p>
+    <p>So I'm running it. And having you there would mean the world!</p>
+  </section>
+  <section class="details">
+    <div class="detail-grid">
+      <div class="card">
+        <div class="ic">📅</div>
+        <div>
+          <div class="lbl">Date</div>
+          <div class="val">Saturday, Aug 29</div>
+          <div class="note">2026</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ic">🏁</div>
+        <div>
+          <div class="lbl">I finish around</div>
+          <div class="val">9:00 AM</div>
+          <div class="note">Race starts 6:30 up the canyon</div>
+        </div>
+      </div>
+      <div class="card detail-full">
+        <div class="ic">📍</div>
+        <div>
+          <div class="lbl">Finish line: where to find me</div>
+          <div class="val"><a class="maplink" href="https://maps.app.goo.gl/WivSZmMDaSE5y6Ap7" target="_blank" rel="noopener">Memorial Park</a></div>
+          <div class="note"><a class="maplink" href="https://maps.app.goo.gl/WivSZmMDaSE5y6Ap7" target="_blank" rel="noopener">300 S Main St, Payson, UT 84651</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="plan">
+    <h3>Your game plan 🎉</h3>
+    <p class="lede">No need to be there for the start (it's way up the canyon at 6:30am!). Just aim for the finish.</p>
+    <ol class="steps">
+      <li class="step">
+        <div class="num">1</div>
+        <div class="body">
+          <h4>Arrive by ~8:30 AM</h4>
+          <p>I'm not sure when I'm gonna finish, this is my first race, but it should take me 2 1/2 hours, maybe a little more or a little less. Head to Memorial Park and park in one of the designated lots around the park. Give yourself a little buffer to find a good spot.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="num">2</div>
+        <div class="body">
+          <h4>Post up along the finish fence</h4>
+          <p>Cheer me on from the fence that leads up to the finish line. That's the best spot to catch me coming in, bring a sign if you're feeling extra! 💛</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="num">3</div>
+        <div class="body">
+          <h4>Meet me in the Celebration Area</h4>
+          <p>Right after I finish I'll grab my medal and come find you in the finish-line Celebration Area.</p>
+        </div>
+      </li>
+    </ol>
+    <div style="text-align:center; margin-top:6px;">
+      <a class="map-btn" href="https://maps.app.goo.gl/WivSZmMDaSE5y6Ap7" target="_blank" rel="noopener">📍 Open Memorial Park in Maps</a>
+    </div>
+  </section>
+  <section class="lunch">
+    <div class="emoji">🥞</div>
+    <h3>Then... lunch!</h3>
+    <p>After the race you are welcome to come with me to grab lunch!</p>
+  </section>
+  <footer class="foot">
+    <div class="sign">Can't wait to see you there</div>
+    <p class="tiny">
+      Race details from the official
+      <a class="link" href="https://runtasticevents.com/races/nebo/" target="_blank" rel="noopener">Runtastic Nebo page</a>.
+      Times are estimates. Thank you for celebrating this one with me. 🏃‍♀️❤️
+    </p>
+  </footer>
+</body>
+</html>
